@@ -58,7 +58,11 @@ export const MapModule = {
         fillOpacity: 0.85,
       });
       const items = g.items;
-      marker.bindPopup(() => this.buildPopup(g, tab), { minWidth: 210, maxWidth: 300 });
+      const popupMax = Math.min(300, Math.max(200, window.innerWidth - 48));
+      marker.bindPopup(() => this.buildPopup(g, tab), {
+        minWidth: Math.min(210, popupMax),
+        maxWidth: popupMax,
+      });
       marker.on('click', () => {
         if (items.length === 1) Drawer.open(items[0]);
       });

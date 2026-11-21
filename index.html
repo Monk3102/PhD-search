@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>PhD Map: European Astrophysics &amp; Cosmology PhD Navigator</title>
 <meta name="description" content="Interactive map and application tracker for European astrophysics and cosmology PhD openings, universities, and research supervisors.">
 <meta property="og:title" content="PhD Map: European Astrophysics &amp; Cosmology PhD Navigator">
@@ -20,10 +20,10 @@
     <div><span>PhD Map</span> <span class="brand-sub">European Astrophysics &amp; Cosmology</span></div>
   </div>
   <nav class="tab-group" role="tablist">
-    <button class="tab-btn active" data-tab="openings">Openings <span class="tab-count" id="count-openings">0</span></button>
-    <button class="tab-btn" data-tab="universities">Universities <span class="tab-count" id="count-universities">0</span></button>
-    <button class="tab-btn" data-tab="supervisors">Supervisors <span class="tab-count" id="count-supervisors">0</span></button>
-    <button class="tab-btn" data-tab="tracker">Tracker <span class="tab-count" id="count-tracker">0</span></button>
+    <button class="tab-btn active" data-tab="openings"><span>Openings</span> <span class="tab-count" id="count-openings">0</span></button>
+    <button class="tab-btn" data-tab="universities"><span>Universities</span> <span class="tab-count" id="count-universities">0</span></button>
+    <button class="tab-btn" data-tab="supervisors"><span>Supervisors</span> <span class="tab-count" id="count-supervisors">0</span></button>
+    <button class="tab-btn" data-tab="tracker"><span>Tracker</span> <span class="tab-count" id="count-tracker">0</span></button>
   </nav>
   <div class="header-actions">
     <button id="gcal-signin-btn" class="gsi-material-button" title="Sign in with Google to save reminders to Google Calendar">
@@ -38,13 +38,13 @@
             <path fill="none" d="M0 0h48v48H0z"></path>
           </svg>
         </div>
-        <span class="gsi-material-button-contents">Sign in with Google</span>
+        <span class="gsi-material-button-contents"><span class="hide-sm">Sign in with </span>Google</span>
       </div>
     </button>
     <button id="gcal-connected-btn" class="gcal-connected-btn" title="View Google Calendar reminders &amp; account">📅 <span id="gcal-user-label">Calendar</span></button>
-    <a id="open-gcal-web-btn" class="btn-gcal-web" href="https://calendar.google.com" target="_blank" rel="noopener noreferrer" title="Open Google Calendar webpage or app">📆 Open Calendar ↗</a>
-    <button id="account-btn" class="account-btn" title="Switch local account"><span class="account-dot"></span><span id="account-label">Select Account</span></button>
-    <button id="add-btn" class="btn-filter-trigger" title="Add entries in bulk">＋ Add</button>
+    <a id="open-gcal-web-btn" class="btn-gcal-web" href="https://calendar.google.com" target="_blank" rel="noopener noreferrer" title="Open Google Calendar webpage or app">📆 <span class="hide-md">Open Calendar ↗</span></a>
+    <button id="account-btn" class="account-btn" title="Switch local account"><span class="account-dot"></span><span id="account-label">Account</span></button>
+    <button id="add-btn" class="btn-filter-trigger" title="Add entries in bulk">＋ <span class="hide-xs">Add</span></button>
     <button id="theme-toggle" class="btn-icon" title="Toggle Light/Dark Theme">◐</button>
   </div>
 </header>
@@ -78,7 +78,12 @@
 </div>
 
 <main>
-  <div id="explorer-view" class="explorer-container">
+  <div id="explorer-view" class="explorer-container" data-mobile-view="split">
+    <div class="mobile-view-switch" role="group" aria-label="Mobile view mode">
+      <button type="button" class="mobile-view-btn active" data-mobile-view="split">Split</button>
+      <button type="button" class="mobile-view-btn" data-mobile-view="map">Map</button>
+      <button type="button" class="mobile-view-btn" data-mobile-view="list">List</button>
+    </div>
     <div id="map">
       <div class="map-controls-overlay">
         <div class="map-style-switch">

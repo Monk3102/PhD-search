@@ -69,6 +69,19 @@ export const App = {
       });
     });
 
+    const explorerView = document.getElementById('explorer-view');
+    document.querySelectorAll('.mobile-view-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const mode = btn.dataset.mobileView;
+        document.querySelectorAll('.mobile-view-btn').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        explorerView.setAttribute('data-mobile-view', mode);
+        if (mode !== 'list') {
+          requestAnimationFrame(() => MapModule.map?.invalidateSize());
+        }
+      });
+    });
+
     // One delegated listener for all result cards (notes & calendar triggers)
     document.getElementById('cards-container').addEventListener('click', (e) => {
       if (e.target.closest('.btn-cal-open')) {
@@ -281,6 +294,9 @@ export const App = {
                 <div style="font-size:11px;color:var(--text-muted)">${i.uni ? Utils.escape(i.uni.name) : ''}</div>
                 ${i.entry.follow ? `<div style="font-family:var(--font-mono);font-size:10px;color:var(--amber)">⏰ Follow: ${Utils.escape(i.entry.follow)}</div>` : ''}
                 ${Store.notes[i.id] ? `<div class="kanban-note">📝 ${Utils.escape(Store.notes[i.id].text)}</div>` : ''}
+                <select class="kanban-stage-select" data-stage-id="${Utils.escape(i.id)}" aria-label="Move stage">
+                  ${Config.stages.map((s) => `<option value="${s.key}"${s.key === stg.key ? ' selected' : ''}>Move to: ${s.label}</option>`).join('')}
+                </select>
                 <div class="kanban-actions">
                   <button class="btn-kanban" data-action="details" data-id="${Utils.escape(i.id)}">Details</button>
                   <button class="btn-kanban btn-kanban-notes" data-action="notes" data-id="${Utils.escape(i.id)}" title="Open separate note-taking window">📝 ${Store.notes[i.id] ? 'Note •' : 'Notes'}</button>
@@ -300,6 +316,16 @@ export const App = {
     if (!board._bound) {
       board._bound = true;
       const clearOver = () => board.querySelectorAll('.drag-over').forEach((c) => c.classList.remove('drag-over'));
+
+      board.addEventListener('change', (e) => {
+        const sel = e.target.closest('.kanban-stage-select');
+        if (!sel) return;
+        const id = sel.dataset.stageId;
+        const stage = sel.value;
+        if (id && Store.tracker[id] && Store.tracker[id].status !== stage) {
+          Store.updateStage(id, stage);
+        }
+      });
 
       board.addEventListener('dragstart', (e) => {
         const card = e.target.closest('.kanban-card');
