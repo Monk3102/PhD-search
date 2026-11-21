@@ -6,7 +6,7 @@ import {
   onAuthStateChanged,
   User,
 } from 'firebase/auth';
-import firebaseConfig from '../firebase-applet-config.json';
+import firebaseConfig from '../../firebase-applet-config.json';
 
 export const SCOPES = [
   'https://www.googleapis.com/auth/calendar.events',
@@ -286,7 +286,7 @@ window.GoogleCalendarBridge = {
   logout,
   isSignedIn: () => Boolean(cachedAccessToken && currentUser),
   isGoogleAuthenticated: () => Boolean(currentUser),
-  getUserInfo: () => currentUser ? { email: currentUser.email, displayName: currentUser.displayName } : null,
+  getUserInfo: () => (currentUser ? { email: currentUser.email, displayName: currentUser.displayName } : null),
   listEntityEvents,
   listAllPhdMapEvents,
   createCalendarEvent,

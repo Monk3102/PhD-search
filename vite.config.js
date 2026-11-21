@@ -19,6 +19,7 @@ function copyRootDataJsonPlugin() {
 }
 
 export default defineConfig({
+  base: './',
   plugins: [copyRootDataJsonPlugin()],
   server: {
     host: '0.0.0.0',
