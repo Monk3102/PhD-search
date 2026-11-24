@@ -1,6 +1,6 @@
-import { Store } from '../state/store.js';
-import { Utils } from '../utils/helpers.js';
-import { App } from '../app.js';
+import { Store } from './store.js';
+import { Utils } from './utils.js';
+import { App } from './app.js';
 
 export const FilterEngine = {
   state: {

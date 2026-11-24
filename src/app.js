@@ -1,13 +1,13 @@
-import { Config, TYPE_LABEL } from './config/constants.js';
-import { Store } from './state/store.js';
-import { Utils } from './utils/helpers.js';
-import { MapModule } from './ui/map.js';
-import { FilterEngine } from './ui/filters.js';
-import { Drawer } from './ui/drawer.js';
-import { NoteWindow } from './ui/notes.js';
-import { CalendarUI } from './ui/calendar.js';
-import { AccountManager } from './ui/accounts.js';
-import { Importer } from './ui/importer.js';
+import './style.css';
+import './google-calendar.ts';
+import { Config, TYPE_LABEL } from './config.js';
+import { Store } from './store.js';
+import { Utils } from './utils.js';
+import { MapModule } from './map.js';
+import { FilterEngine } from './filters.js';
+import { Drawer } from './drawer.js';
+import { CalendarUI } from './calendar.js';
+import { AccountManager, NoteWindow, Importer } from './modals.js';
 
 export const App = {
   activeTab: 'openings',
@@ -380,3 +380,9 @@ export const App = {
     }
   },
 };
+
+if (document.readyState === 'loading') {
+  window.addEventListener('DOMContentLoaded', () => App.init());
+} else {
+  App.init();
+}

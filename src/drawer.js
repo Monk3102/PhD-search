@@ -1,9 +1,9 @@
-import { Config } from '../config/constants.js';
-import { Store } from '../state/store.js';
-import { Utils } from '../utils/helpers.js';
-import { App } from '../app.js';
+import { Config } from './config.js';
+import { Store } from './store.js';
+import { Utils } from './utils.js';
+import { App } from './app.js';
 import { MapModule } from './map.js';
-import { NoteWindow } from './notes.js';
+import { NoteWindow } from './modals.js';
 import { CalendarUI } from './calendar.js';
 
 export const Drawer = {

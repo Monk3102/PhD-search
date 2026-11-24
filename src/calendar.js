@@ -1,6 +1,6 @@
-import { Config, TYPE_LABEL } from '../config/constants.js';
-import { Store } from '../state/store.js';
-import { Utils } from '../utils/helpers.js';
+import { Config, TYPE_LABEL } from './config.js';
+import { Store } from './store.js';
+import { Utils } from './utils.js';
 
 export const CalendarConfirm = {
   resolver: null,

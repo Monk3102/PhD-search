@@ -1,4 +1,4 @@
-import { Store } from '../state/store.js';
+import { Store } from './store.js';
 
 export const Celebrate = {
   run() {

@@ -1,6 +1,6 @@
-import { Config } from '../config/constants.js';
-import { Utils } from '../utils/helpers.js';
-import { App } from '../app.js';
+import { Config } from './config.js';
+import { Utils } from './utils.js';
+import { App } from './app.js';
 import { Drawer } from './drawer.js';
 
 export const MapModule = {

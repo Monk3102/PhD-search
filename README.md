@@ -13,26 +13,17 @@ Interactive Leaflet map, searchable directory, and application Kanban tracker fo
 │   ├── .nojekyll                # Disables Jekyll processing on GitHub Pages
 │   └── detail.json              # Lazy-loaded research descriptions & summaries
 ├── src/
-│   ├── main.js                  # Application entry point
-│   ├── app.js                   # Core UI controller, card rendering & Kanban board
-│   ├── config/
-│   │   └── constants.js         # App config, accounts, pipeline stages & map layers
-│   ├── services/
-│   │   └── googleCalendar.ts    # Firebase Google Sign-In & Google Calendar API sync
-│   ├── state/
-│   │   └── store.js             # Dataset indexing, custom entries & localStorage state
-│   ├── styles/
-│   │   └── main.css             # Application styles and dark mode theme
-│   ├── ui/
-│   │   ├── accounts.js          # Local account switcher (Naman / Peehu)
-│   │   ├── calendar.js          # Google Calendar reminder modal & overview
-│   │   ├── drawer.js            # Entity detail drawer
-│   │   ├── filters.js           # Search, country, subfield & status filters
-│   │   ├── importer.js          # Bulk JSON entry importer/exporter
-│   │   ├── map.js               # Leaflet street/satellite map & cluster pins
-│   │   └── notes.js             # Dedicated per-entity note window
-│   └── utils/
-│       └── helpers.js           # HTML escaping, date helpers & offer celebration
+│   ├── app.js                   # Entry point, core UI controller, cards & Kanban board
+│   ├── calendar.js              # Google Calendar reminder modal & overview
+│   ├── config.js                # App config, accounts, pipeline stages & map layers
+│   ├── drawer.js                # Entity detail drawer
+│   ├── filters.js               # Search, country, subfield & status filters
+│   ├── google-calendar.ts       # Firebase Google Sign-In & Google Calendar API sync
+│   ├── map.js                   # Leaflet street/satellite map & cluster pins
+│   ├── modals.js                # Local account switcher, note window & JSON importer
+│   ├── store.js                 # Dataset indexing, custom entries & localStorage state
+│   ├── style.css                # Application styles, dark mode & mobile layout
+│   └── utils.js                 # Escaping, date helpers & offer celebration
 ├── firebase-applet-config.json  # Firebase Web SDK configuration
 ├── index.html                   # HTML shell
 ├── package.json

@@ -1,7 +1,7 @@
-import { Config } from '../config/constants.js';
-import { Celebrate, Utils } from '../utils/helpers.js';
-import { App } from '../app.js';
-import { Drawer } from '../ui/drawer.js';
+import { Config } from './config.js';
+import { Celebrate, Utils } from './utils.js';
+import { App } from './app.js';
+import { Drawer } from './drawer.js';
 
 export const Store = {
   dataset: { openings: [], universities: [], supervisors: [] },
