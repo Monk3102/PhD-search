@@ -13,17 +13,11 @@ Interactive Leaflet map, searchable directory, and application Kanban tracker fo
 │   ├── .nojekyll                # Disables Jekyll processing on GitHub Pages
 │   └── detail.json              # Lazy-loaded research descriptions & summaries
 ├── src/
-│   ├── app.js                   # Entry point, core UI controller, cards & Kanban board
-│   ├── calendar.js              # Google Calendar reminder modal & overview
-│   ├── config.js                # App config, accounts, pipeline stages & map layers
-│   ├── drawer.js                # Entity detail drawer
-│   ├── filters.js               # Search, country, subfield & status filters
-│   ├── google-calendar.ts       # Firebase Google Sign-In & Google Calendar API sync
-│   ├── map.js                   # Leaflet street/satellite map & cluster pins
-│   ├── modals.js                # Local account switcher, note window & JSON importer
-│   ├── store.js                 # Dataset indexing, custom entries & localStorage state
+│   ├── app.js                   # Entry point, filters, cards & Kanban board
+│   ├── calendar.ts              # Firebase Auth, Google Calendar API & reminder modals
+│   ├── data.js                  # App config, utilities, dataset & localStorage store
 │   ├── style.css                # Application styles, dark mode & mobile layout
-│   └── utils.js                 # Escaping, date helpers & offer celebration
+│   └── views.js                 # Map, detail drawer, accounts, notes & JSON importer
 ├── firebase-applet-config.json  # Firebase Web SDK configuration
 ├── index.html                   # HTML shell
 ├── package.json
